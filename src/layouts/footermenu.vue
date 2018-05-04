@@ -14,13 +14,13 @@
         <q-route-tab
           slot="title"
           icon="home"
-          to="/your/route"
+          to="/"
           replace
         />
         <q-route-tab
           slot="title"
           icon="info"
-          to="/some/other/route"
+          to="/info"
           replace
         />
         <q-route-tab
