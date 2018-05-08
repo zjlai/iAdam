@@ -3,7 +3,6 @@
     <q-layout-header>
       <q-toolbar>
         <q-btn
-          v-if="showback"
           flat round dense
           icon="arrow_back"
           @click="$router.go(-1)"
@@ -59,23 +58,10 @@
 
 <script>
 export default {
-  name: 'LayoutFooter',
-  watch: {
-    '$route' (to, from) {
-      console.log(Object.keys(to.params))
-      if (Object.keys(to.params).length === 0) {
-        this.showback = false
-        console.log(this.showback)
-      } else {
-        this.showback = true
-        console.log(this.showback)
-      }
-    }
-  },
+  // name: 'LayoutName',
   data () {
     return {
-      showback: false,
-      leftDrawer: false
+      leftDrawer: true
     }
   }
 }
