@@ -34,6 +34,14 @@ export default [
     ]
   },
 
+  {
+    path: '/treemap',
+    component: () => import('layouts/footermenu'),
+    children: [
+      { path: '', component: () => import('pages/treemap') }
+    ]
+  },
+
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')

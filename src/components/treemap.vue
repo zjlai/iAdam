@@ -1,15 +1,15 @@
 <template>
-  <chart :options="options" :init-options="initOptions" class="chart" @click="callback" />
+  <chart :options="options" :init-options="initOptions" class="chart" />
 </template>
 
 <script>
 import ECharts from 'vue-echarts/components/ECharts'
-import 'echarts/lib/chart/sunburst'
+import 'echarts/lib/chart/treemap'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/tooltip'
 
 export default {
-  name: 'ComponentSunburst',
+  name: 'ComponentTreemap',
   components: {
     chart: ECharts
   },
@@ -70,6 +70,13 @@ export default {
         renderer: 'svg'
       },
       options: {
+        title: {
+          top: 5,
+          left: 'center',
+          show: true,
+          text: 'How am I doing?',
+          subtext: 'Subject Breakdown'
+        },
         visualMap: [
           {
             orient: 'horizontal',
@@ -92,49 +99,25 @@ export default {
           }
         ],
         series: {
-          type: 'sunburst',
+          name: 'Subject',
+          type: 'treemap',
           data: data,
-          highlightPolicy: 'descendant',
-          center: ['50%', '45%'],
-          radius: ['0', '90%'],
+          left: 'center',
+          top: 'center',
+          leafDepth: 1,
+          squareRatio: 0.75,
+          roam: false,
+          visibleMin: 30,
           label: {
-            rotate: 'radial'
+            show: true
           },
-          sort: null,
-          levels: [
-            {},
-            {
-              r0: '25%',
-              r: '80%',
-              label: {
-                align: 'center',
-                rotate: 'radial',
-                padding: 3
-              }
-            },
-            {
-              r0: '80%',
-              r: '87%',
-              label: {
-                position: 'outside',
-                padding: 3,
-                silent: false,
-                color: 'auto',
-                fontWeight: 600
-              },
-              itemStyle: {
-                borderWidth: 2
-              }
+          itemStyle: {
+            normal: {
+              borderColor: '#fff'
             }
-          ]
+          }
         }
       }
-    }
-  },
-  methods: {
-    callback (event) {
-      console.log(event.name)
-      console.log(event.data.children)
     }
   }
 }
