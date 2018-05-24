@@ -61,7 +61,15 @@
 <script>
 export default {
   name: 'PageInfo',
-  date () {
+  data () {
+    this.$auth.currentAuthenticatedUser()
+      .then(user => {
+        console.log('user')
+      })
+      .catch(err => {
+        console.log(err)
+        this.$router.replace('/')
+      })
     return {}
   }
 }

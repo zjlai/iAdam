@@ -1,7 +1,7 @@
 
 export default [
   {
-    path: '/',
+    path: '/schedule',
     component: () => import('layouts/footermenu'),
     children: [
       { path: '', component: () => import('pages/index') }
@@ -39,6 +39,14 @@ export default [
     component: () => import('layouts/footermenu'),
     children: [
       { path: '', component: () => import('pages/treemap') }
+    ]
+  },
+
+  {
+    path: '/',
+    component: () => import('layouts/empty'),
+    children: [
+      { path: '', component: () => import('pages/login') }
     ]
   },
 

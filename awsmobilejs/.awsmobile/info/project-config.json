@@ -1,0 +1,6 @@
+{
+	"SourceDir": "src",
+	"DistributionDir": "src-cordova",
+	"BuildCommand": "quasar build -m cordova -T android",
+	"StartCommand": "npm.cmd run-script start"
+}

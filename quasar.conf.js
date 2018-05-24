@@ -5,7 +5,9 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'axios'
+      'axios',
+      'auth',
+      'vuelidate'
     ],
     css: [
       'app.styl'
@@ -77,7 +79,9 @@ module.exports = function (ctx) {
         'QCardMedia',
         'QCardSeparator',
         'QCardActions',
-        'QCollapsible'
+        'QCollapsible',
+        'QField',
+        'QInput'
       ],
       directives: [
         'Ripple'

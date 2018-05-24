@@ -75,20 +75,24 @@ export default {
             orient: 'horizontal',
             top: 'bottom',
             left: 'center',
-            type: 'continuous',
-            min: 0,
-            max: 100,
-            range: [1, 100],
-            calculable: true,
+            type: 'piecewise',
+            inverse: true,
+            // min: 0,
+            // max: 100,
+            // range: [1, 100],
+            pieces: [
+              { min: 91, max: 100, label: 'A*', color: 'rgba(0, 0, 255, 1)' },
+              { min: 75, max: 90, label: 'A', color: 'rgba(0, 0, 255, 0.8)' },
+              { min: 60, max: 74, label: 'B*', color: 'rgba(0, 0, 255, 0.5)' },
+              { min: 50, max: 59, label: 'C', color: 'rgba(255, 0, 0, 0.5)' },
+              { min: 35, max: 49, label: 'D', color: 'rgba(255, 0, 0, 0.7)' },
+              { min: 20, max: 34, label: 'E', color: 'rgba(255, 0, 0, 1)' },
+              { min: 0, max: 19, label: 'U', color: 'rgba(255, 0, 0, 1)' },
+              { max: 0, label: 'Not Taught', color: 'rgba(0, 0, 0, 0.5)' }
+            ],
+            calculable: false,
             realtime: true,
-            text: ['Strong', 'Weak'],
-            inRange: {
-              // color: ['#de6161', '#2657eb']
-              color: ['rgba(0, 0, 255, 0.1)', 'rgba(255, 0, 0, 0.5)', 'rgba(255, 0, 0, 0.7)', 'rgba(0, 0, 255, 0.5)', 'rgba(0, 0, 255, 1)']
-            },
-            outOfRange: {
-              color: 'rgba(0, 0, 0, 0.5)'
-            }
+            show: false
           }
         ],
         series: {
@@ -101,6 +105,7 @@ export default {
             rotate: 'radial'
           },
           sort: null,
+          nodeClick: false,
           levels: [
             {},
             {
